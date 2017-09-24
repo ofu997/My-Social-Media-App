@@ -1,0 +1,47 @@
+﻿
+
+@model    Register.Models.User
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Register</h2>
+
+@using (Html.BeginForm("Register", "Register", FormMethod.Post))
+{
+    @Html.AntiForgeryToken();
+    <div class="form-group">
+        @Html.Label("User Name", null, new { @class="control-label col-md-2"})
+        @Html.TextBoxFor(model=>model.UserName,null,new { @class="form-control"})
+    </div>
+    <div class="form-group">
+        @Html.Label("Password", null, new { @class = "control-label col-md-2" })
+        @Html.TextBoxFor(model => model.Password, null, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.Label("First Name", null, new { @class = "control-label col-md-2" })
+        @Html.TextBoxFor(model => model.FirstName, null, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Last Name", null, new { @class = "control-label col-md-2" })
+        @Html.TextBoxFor(model => model.LastName, null, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.Label("About ", null, new { @class = "control-label col-md-2" })
+        @Html.TextAreaFor(model=>model.About, new { @class="form-control "})
+    </div>
+    <div class="form-group">
+        @Html.Label("Gender ", null, new { @class = "control-label col-md-2" })
+        @Html.DropDownListFor(model => model.Gender, new SelectList(new List<string>() { "Male","Female","Other"}),"Select Gender",new { @class="form-control"})
+    </div>
+    <div class="form-group">
+        @Html.Label("Interests", null, new { @class = "control-label col-md-2" })
+        @Html.ListBoxFor(model=>model.Interests, (MultiSelectList)ViewBag.interest, new { multiple="multiple"})
+    </div>
+    <div class="form-group">
+        @Html.Label("Remember me", null, new { @class = "control-label col-md-2" })
+        @Html.CheckBoxFor(model=>model.RememberMe )
+    </div>
+
+    <input type="submit" value="Register" class="btn btn-primary"/>
+}
