@@ -23,6 +23,13 @@
         <th>
             @Html.DisplayNameFor(model => model.About)
         </th>
+                @*
+                    <th>
+            @Html.DisplayNameFor(model=>model.Interests)
+        </th>
+                *@
+
+
         <th>
             @Html.DisplayNameFor(model => model.RememberMe)
         </th>
@@ -46,6 +53,15 @@
         <td>
             @Html.DisplayFor(modelItem => item.About)
         </td>
+                @*
+                    <td>
+            @foreach (var interest in item.Interests)
+            {
+                @Html.DisplayFor(modelItem => interest)
+            }
+        </td>
+                *@
+
         <td>
             @Html.DisplayFor(modelItem => item.RememberMe)
         </td>

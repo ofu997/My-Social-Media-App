@@ -1,0 +1,23 @@
+﻿
+@model Register.Models.User
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Login", "Login", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("User Name", new  { @class = "label-Control" })
+        @Html.TextBoxFor(model => model.UserName, null, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Password", new { @class = "label-Control" })
+        @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+    </div>
+
+    <input type="submit" value="Login" class="btn btn-primary" />
+}
+

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Register.Models;
+using PasswordSecurity;
 
 namespace Register.Controllers
 {
@@ -29,6 +30,7 @@ namespace Register.Controllers
 					Interest interest = db.Interests.Find(item);
 					user.Interests.Add(interest);
 				}
+				user.Password = PasswordStorage.CreateHash(user.Password);
 				db.Users.Add(user);
 				db.SaveChanges();
 				return RedirectToAction("Index", "Users");
